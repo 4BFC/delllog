@@ -71,3 +71,8 @@ dellog는 어느 정도 완성된 문서화가 자리잡히고 나면, 추가할
 > 꼭, React여야 하는가.
 
 - 그럴 필요는 없다. 단, 새로운 Framework는 pr 검토를 통해 승인이 나는 경우에만 merge가 가능하다.
+
+### 다음 진행할 계획
+
+- [ ] coderabbit 설정
+- [ ] dependbot 설정

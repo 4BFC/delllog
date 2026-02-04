@@ -42,6 +42,24 @@
 | test      | Adding tests, refactoring test; no production code change                     |
 | chore     | Updating build tasks, package manager configs, etc; no production code change |
 
+### Branch Conventions
+
+Branch 전략은 `<username>/<topic>`과 같은 규칙으로 한다.
+
+- 항시 Branch 네이밍은 소문자로 한다.
+- 간결하게 작성하고 상세 내용은 커밋에 기록한다.
+- 공백대신 `-`를 사용한다.
+
+작성 요령 예시는 다음과 같다.
+
+| 상황 | 브랜치 예시 |
+|------|------------|
+| poby가 react-hooks 학습 문서 작성 | `<username>/react-hooks` |
+| poby가 workspace에 컴포넌트 추가 | `<username>/login-form` |
+| 공통 설정 추가 | `<username>/config-eslint` |
+| delllog 블로그 기능 개발 | `<username>/delllog-main-page` |
+| 공통 설정 및 학습 문서를 복합적으로 작업을 실행한 경우 대표 작업을 브랜치로 두고 커밋 내역을 상세하게 작성한다. | `<username>/react-usememo` |
+
 ### Dir Structure (v0.1.0)
 
 ```md

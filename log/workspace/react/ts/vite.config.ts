@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import checker from 'vite-plugin-checker'
+import Pages from 'vite-plugin-pages'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,7 +11,10 @@ export default defineConfig({
      * 컴파일과 별개 스레드로 병렬 타입 체크 동작 단, 반영이 tsc 특성상 느릴 수 있음
      * @remark `concurrently -n vite,tsc -c blue,yellow \"vite\" \"tsc --noEmit --watch\"` 동일한 역할, dependency 관리 시 scripts로 변경 필요
     */
-    checker({ typescript: true })
+    checker({ typescript: true }),
+    Pages({
+      dirs: 'src/pages'
+    })
   ],
   test: {
     environment: 'jsdom',

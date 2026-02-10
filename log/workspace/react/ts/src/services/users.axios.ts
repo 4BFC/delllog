@@ -3,16 +3,16 @@ import { axiosInstance } from "./axiosInstance";
 export interface User {
     id: number
     email: string
-    firstName: string
-    lastName: string
-    avator: string
+    first_name: string
+    last_name: string
+    avatar: string
 }
 
 interface UsersResponse {
     page: number
-    perPage: number
+    per_page: number
     total: number
-    totalPages: number
+    total_pages: number
     data: User[]
 }
 

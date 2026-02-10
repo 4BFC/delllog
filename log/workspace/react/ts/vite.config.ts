@@ -2,6 +2,7 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import checker from 'vite-plugin-checker'
 import Pages from 'vite-plugin-pages'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -24,5 +25,14 @@ export default defineConfig({
      * @remark 추후 확장성을 고려해서 테스트 환경 설정을 전역으로 설정 필요시 `./src/tdd/__tests__/setup.ts` 가능
     */
     setupFiles: ['./src/test/setup.ts']
+  },
+  envDir: path.resolve(__dirname, '../../../'),
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://reqres.in',
+        changeOrigin: true,
+      }
+    }
   }
 })

@@ -1,7 +1,7 @@
 import { useUsers, useCreateUser } from "../../hooks/useUsers"
 
 function Page(){
-    const { data, isLoading, error } = useUsers(1)
+    const { data, isLoading, error } = useUsers()
     const createUser = useCreateUser()
 
     if (isLoading) return <div>Loading...</div>
@@ -11,13 +11,13 @@ function Page(){
       <div>
         <h1>Users</h1>
         <ul>
-          {data?.data.map((user) => (
-            <li key={user.id}>{user.first_name} {user.last_name}</li>
+          {data?.map((user) => (
+            <li key={user.id}>{user.name}</li>
           ))}
         </ul>
 
         <button
-          onClick={() => createUser.mutate({ name: 'poby', job: 'developer' })}
+          onClick={() => createUser.mutate({ name: 'poby', email: 'poby@test.com' })}
         >
           Add User
         </button>

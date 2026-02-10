@@ -2,43 +2,26 @@ import { axiosInstance } from "./axiosInstance";
 
 export interface User {
     id: number
+    name: string
+    username: string
     email: string
-    first_name: string
-    last_name: string
-    avatar: string
-}
-
-interface UsersResponse {
-    page: number
-    per_page: number
-    total: number
-    total_pages: number
-    data: User[]
-}
-
-interface UserResponse {
-    data: User
+    phone: string
 }
 
 /** Users list */
-export async function getUsers(page = 1): Promise<UsersResponse>{
-    const { data } = await axiosInstance.get<UsersResponse>('/users', {
-        params: { page }
-    });
-
+export async function getUsers(): Promise<User[]>{
+    const { data } = await axiosInstance.get<User[]>('/users');
     return data;
 }
 
 /** User */
 export async function getUser(id: number): Promise<User>{
-    const { data } = await axiosInstance.get<UserResponse>(`/users/${id}`);
-    return data.data
+    const { data } = await axiosInstance.get<User>(`/users/${id}`);
+    return data
 }
 
-/** Create User
- * @TODO : GenricTypes 추가 필요, payload: interface UserRequired 필요
-*/
-export async function createUser(payload: {name: string; job: string;}) {
-    const {data} = await axiosInstance.post('/users', payload)
+/** Create User */
+export async function createUser(payload: { name: string; email: string }) {
+    const { data } = await axiosInstance.post('/users', payload)
     return data
 }

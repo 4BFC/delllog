@@ -10,10 +10,10 @@ export const userKeys = {
     detail: (id: number) => [...userKeys.details(), id] as const,
 }
 
-export function useUsers(page = 1){
+export function useUsers(){
     return useQuery({
-        queryKey: userKeys.list(page),
-        queryFn: () => getUsers(page),
+        queryKey: userKeys.lists(),
+        queryFn: getUsers,
     })
 }
 

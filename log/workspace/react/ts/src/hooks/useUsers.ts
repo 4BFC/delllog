@@ -1,6 +1,6 @@
 // TODO: QueryKey를 관리 할 수 있는 디렉토리 필요
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getUsers, getUser, createUser } from "../services/users.axios";
+import { getUsers, getUser, createUser, updateUser } from "../services/users.axios";
 
 export const userKeys = {
     all: ['users'] as const,
@@ -14,6 +14,7 @@ export function useUsers(){
     return useQuery({
         queryKey: userKeys.lists(),
         queryFn: getUsers,
+        staleTime: 1000 * 60 * 5, // 5분 - stale cache 재현용
     })
 }
 
@@ -33,6 +34,19 @@ export function useCreateUser(){
         mutationFn: createUser,
         onSuccess: () => {
             QueryClient.invalidateQueries({queryKey: userKeys.lists()})
+        }
+    })
+}
+
+export function useUpdateUser(){
+    const queryClient = useQueryClient()
+
+    return useMutation({
+        mutationFn: ({ id, ...payload }: { id: number } & Partial<{ name: string; email: string }>) =>
+            updateUser(id, payload),
+        onSuccess: () => {
+            // 리스트 캐시만 invalidate - stale cache 문제 재현용
+            queryClient.invalidateQueries({queryKey: userKeys.lists()})
         }
     })
 }

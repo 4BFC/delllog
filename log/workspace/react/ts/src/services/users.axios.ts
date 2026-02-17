@@ -25,3 +25,9 @@ export async function createUser(payload: { name: string; email: string }) {
     const { data } = await axiosInstance.post('/users', payload)
     return data
 }
+
+/** Update User */
+export async function updateUser(id: number, payload: Partial<User>) {
+    const { data } = await axiosInstance.put<User>(`/users/${id}`, payload)
+    return data
+}

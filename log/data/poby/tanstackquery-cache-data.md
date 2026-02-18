@@ -105,3 +105,4 @@ onSuccess: () => {
 - [micro frontend](https://jobkaehenry.tistory.com/64)
 - [query-invalidation](https://tanstack.com/query/v5/docs/framework/react/guides/query-invalidation)
 - [QueryClient](https://tanstack.com/query/latest/docs/reference/QueryClient)
+- [Mutation 이후 전체 Query를 invalidation 하기](https://yogjin.tistory.com/130)

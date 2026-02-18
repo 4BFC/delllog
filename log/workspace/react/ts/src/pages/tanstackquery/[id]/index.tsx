@@ -18,14 +18,7 @@ function Page() {
 
     const handleUpdate = () => {
         if (!name.trim()) return
-        updateUser.mutate(
-            { id: userId, name },
-            {
-                onSuccess: () => {
-                    navigate("/tanstackquery")
-                }
-            }
-        )
+        updateUser.mutate({ id: userId, name })
     }
 
     return (

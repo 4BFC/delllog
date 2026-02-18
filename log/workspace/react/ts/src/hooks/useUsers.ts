@@ -28,12 +28,12 @@ export function useUser(id: number){
 
 
 export function useCreateUser(){
-    const QueryClient = useQueryClient()
+    const queryClient = useQueryClient()
 
     return useMutation({
         mutationFn: createUser,
         onSuccess: () => {
-            QueryClient.invalidateQueries({queryKey: userKeys.lists()})
+            queryClient.invalidateQueries({queryKey: userKeys.lists()})
         }
     })
 }
@@ -45,8 +45,8 @@ export function useUpdateUser(){
         mutationFn: ({ id, ...payload }: { id: number } & Partial<{ name: string; email: string }>) =>
             updateUser(id, payload),
         onSuccess: () => {
-            // 리스트 캐시만 invalidate - stale cache 문제 재현용
-            queryClient.invalidateQueries({queryKey: userKeys.lists()})
+            // details 캐시만 invalidate - stale cache 문제 재현용
+            queryClient.invalidateQueries({queryKey: userKeys.details()})
         }
     })
 }

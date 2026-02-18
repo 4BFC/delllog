@@ -69,7 +69,7 @@ invalidateQueries를 사용하면 cache를 강제로 refetch를 한다고 이해
 
 ## 결론
 
-처음에는 InvalidateQueries가 좋지 않은 anti-pattern이거나 TQ에서 권장하지 않는 방식이라 생각했다. 하지만, 개념을 다시 정리하고 살펴보면 단순히 cache의 신선도를 stale로 변경하고 해당 query가 호출, 구독된 컴포넌트(QueryObserver)를 마운트 언마운트에 따라 refetch가 결정되는 방식이란 것을 이해하고 다시 코드 useUsers.ts의 useUpdateUser함수를 보면 lists도 다음과 같이 invalidateQueries를 하면 되는 것 아닌가 싶었다.
+처음에는 InvalidateQueries가 좋지 않은 anti-pattern이거나 TQ에서 권장하지 않는 방식이라 생각했다. 개념을 다시 정리하고 살펴보면 단순히 cache의 신선도를 stale로 변경하고 해당 query가 호출, 구독된 컴포넌트(QueryObserver)를 마운트 언마운트에 따라 refetch가 결정되는 방식이란 것을 이해하고 다시 코드 useUsers.ts의 useUpdateUser함수를 보면 lists도 다음과 같이 invalidateQueries를 하면 되는 것 아닌가 싶었다.
 
 ```ts
 onSuccess: () => {

@@ -5,6 +5,8 @@ CLAUDE.md
 CLUADE.md
 .claude
 .claude/
+.cursor
+.cursor/
 
 # env
 .env

@@ -123,3 +123,11 @@ onSuccess: () => {
   - invalidate with cache-key 방법은 실무와 평소에 많이 해봤기 때문에 패스한다.
   - fetchQuery를 깔끔하게 사용하려면 queryFn을 포함한 query options factory로 확장이 필요하다.
 - 캐싱데이터를 공유하면서 옵션만 따로 제공하면서, 하나의 QueryClient를 최상단에서 제공하고, 하위에서 옵션만 분리적으로 주입할 수 있는 방법 리서치
+
+### fetchQuery의 단점
+
+### 비동기 동작을 asyn await으로 Network 동기 순서 보장
+
+### F12 + `.d.ts` 를 활용해서 타입 확인하기
+
+- Extentions : [TypeScript Nightly](https://marketplace.cursorapi.com/items/?itemName=ms-vscode.vscode-typescript-next)

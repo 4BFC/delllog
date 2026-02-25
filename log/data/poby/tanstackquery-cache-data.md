@@ -106,3 +106,20 @@ onSuccess: () => {
 - [query-invalidation](https://tanstack.com/query/v5/docs/framework/react/guides/query-invalidation)
 - [QueryClient](https://tanstack.com/query/latest/docs/reference/QueryClient)
 - [Mutation 이후 전체 Query를 invalidation 하기](https://yogjin.tistory.com/130)
+
+---
+
+## Feedback 반영
+
+### Feedback List
+
+> 현재는 리스트 페이지와 상세 페이지가 cache로 인해서 동기화가 되고 있지 않은 상태이다. <br><br>
+> feedback <br>
+> link: [inavlidate](https://github.com/4BFC/delllog/pull/2#discussion_r2830779295) <br>
+> link: [fetchQuery](https://github.com/4BFC/delllog/pull/2#discussion_r2831265897) <br>
+> link: [캐싱데이터 공유](https://github.com/4BFC/delllog/pull/2#discussion_r2830828635) <br>
+
+- onSuccess에서 invalidate를 하지 않고 fetchQuery를 사용 후 update 반영이 잘되는지 문서화
+  - invalidate with cache-key 방법은 실무와 평소에 많이 해봤기 때문에 패스한다.
+  - fetchQuery를 깔끔하게 사용하려면 queryFn을 포함한 query options factory로 확장이 필요하다.
+- 캐싱데이터를 공유하면서 옵션만 따로 제공하면서, 하나의 QueryClient를 최상단에서 제공하고, 하위에서 옵션만 분리적으로 주입할 수 있는 방법 리서치

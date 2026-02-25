@@ -2,6 +2,9 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getUsers, getUser, createUser, updateUser } from "../services/users.axios";
 
+/**
+ * @TODO query-key-factory를 관리할 수있게 리팩토링
+ */
 export const userKeys = {
     all: ['users'] as const,
     lists: () => [...userKeys.all, 'list'] as const,

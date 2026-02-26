@@ -51,8 +51,8 @@ export function useUpdateUser(){
         onSuccess: () => {
             // details 캐시만 invalidate - stale cache 문제 재현용
             queryClient.invalidateQueries({queryKey: userKeys.details()});
-            // await queryClient.invalidateQueries({queryKey: userKeys.lists()}); // inavlidate로 cache fresh 상태로 변경
-            queryClient.fetchQuery({ queryKey: userKeys.lists(), queryFn: getUsers});   // fetchQuery를 사용하면 mutationFn이 PUT이 동작하고 queryFn 콜백 함수로 GET이 동작한다. 그리고 users까지 즉, api 3번 호출
+            // awiat queryClient.invalidateQueries({queryKey: userKeys.lists()}); // inavlidate로 cache fresh 상태로 변경 - devtools로 확인
+            queryClient.fetchQuery({ queryKey: userKeys.lists(), queryFn: getUsers});   // fetchQuery를 사용하면 mutationFn이 PUT이 동작하고 queryFn 콜백 함수로 GET이 동작한다. 그리고 users까지 즉, 한번에 api 3번 호출
         }
     })
 }

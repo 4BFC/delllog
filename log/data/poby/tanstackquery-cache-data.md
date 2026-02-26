@@ -124,10 +124,13 @@ onSuccess: () => {
   - fetchQuery를 깔끔하게 사용하려면 queryFn을 포함한 query options factory로 확장이 필요하다.
 - 캐싱데이터를 공유하면서 옵션만 따로 제공하면서, 하나의 QueryClient를 최상단에서 제공하고, 하위에서 옵션만 분리적으로 주입할 수 있는 방법 리서치
 
-### fetchQuery의 단점
+### fetchQuery의 필요성
 
-### 비동기 동작을 asyn await으로 Network 동기 순서 보장
+fetchQuery는 내가 특정 fetching 함수를 직접 호출해서 미리 fetch를 해두는 역할로, cache-key를 가지고 관리하는 것을 한단계 넘어서, 다음 동작, 상태를 업데이트 하기 위한 디테일함을 가지고 있다. invalidate같은 경우에는 cache의 신선도 상태를 변경시키고 필요한 곳에서 fetch가 이루어지면 fresh한 상태로 상태 값을 받을 수 있다. 따라서, 만약 fetching, Network 순서나 시나리오, 케이스가 성립된게 없다면, invalidate가 안정적이지만, 특정 시나리오나 케이스가 명확하다면 fetchQuery가 유용하다.
 
-### F12 + `.d.ts` 를 활용해서 타입 확인하기
+### 비동기 동작을 async await으로 Network 동기 순서 보장
+
+invalidateQueries, fetchQuery는 Promise이기 때문에 async/await을 사용해서 network의 순서를 관리하고 순서 보장을 해주면 더욱 디테일한 fetching 로직이 완성 될 것같다.
+> F12 + `.d.ts` 를 활용해서 타입 확인을 적극적으로 했다.
 
 - Extentions : [TypeScript Nightly](https://marketplace.cursorapi.com/items/?itemName=ms-vscode.vscode-typescript-next)

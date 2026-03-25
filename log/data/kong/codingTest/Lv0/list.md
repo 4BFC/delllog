@@ -1,0 +1,29 @@
+- isinteger → 정수인지 아닌지 판별
+- Map →
+- Set → 평탄화
+- Array →
+- Math.floor -> 내림
+- Math.ceil -> 올림
+- split() -> 괄호 안의 문자를 기준으로 나누기
+- join() -> 괄호 안의 문자를 기준으로 합치기
+- slice()
+- forEach -> 배열 반복문
+- reduce -> 배열 반복문
+- reverse -> 배열 뒤집기
+- Math.pow() -> 거듭제곱
+- [...spred] -> 이런 식으로 펼칠 수 있음
+- filter!!!!!!!
+- map -> 단순히 배열 늘어놓는 것뿐만이 아니라 배열 안의 요소를 바꿀 수 있는듯? 좀 더 알아볼 것.
+- includes -> 포함되어있는지
+- replaceAll -> 해당 문자를 2번째 인자로 바꾸기
+- [비구조화할당](https://velog.io/@ssarr_i/js-%EB%B9%84%EA%B5%AC%EC%A1%B0%ED%99%94%ED%95%A0%EB%8B%B9%EA%B5%AC%EC%A1%B0%EB%B6%84%ED%95%B4%ED%95%A0%EB%8B%B9)
+- lastIndexOf → 찾고자 하는 문자열이 마지막으로 있는 위치
+- startsWith
+- replaceAll → 영어 그대로 전부 바꾸기.
+- Math.sqrt → 루트 씌우기
+- substring → 많이많이 편한 기법이지만,,, 이제는 사용이 지양되므로 그냥 알고만 있기
+- match → 정규식에 따라 맞는 것들 배열로 반환 (g를 넣어야 전체, 아님 하나만…)
+- test → 정규 표현식 패턴과 일치하는지 검색하여 그 결과를 boolean 값으로 반환
+- exec
+- (+) → 문자열 앞에 붙이면 Number() 를 적용시켜준다 (+임... 괄호 안의 + 가 아니라)
+- [isNan()](https://milku.tistory.com/96#google_vignette) → 숫자가 아닌 값이 있는지 없는지 판단. ‘123’ 인 경우도 false다. ‘a123’은 true

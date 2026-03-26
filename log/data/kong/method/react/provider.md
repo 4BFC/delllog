@@ -28,7 +28,7 @@
 ```
 
 리액트로 컴포넌트를 만들 때 상태값 관리는 보통 props나 state로 관리한다.
-이외에도 상태 관리 라이브러리가 있다.
+여기서 context가 나오는데, context는 간단하게 props drilling 문제를 해결하기 위한 React의 내장 기능이라고 보면 될 것 같다.
 
 context에 포함된 react provider는 context를 구독하는 컴포넌트들에게 context의 변화를 알리는 역할을 한다.
 provider 컴포넌트는 value prop을 받아서 이 값을 하위에 있는 컴포넌트에게 전달한다. 값을 전달받을 수 있는 컴포넌트 수에 제한은 없다.
@@ -114,6 +114,10 @@ function useThemeContext() {
   return theme;
 }
 ```
+
+## 번외2. 검색
+
+검색할 때 react provider 라고 하면 나오는 게 많이 없다... provider 패턴이라고 검색해야 잘 나온다. 참고하기!
 
 ## 참고
 

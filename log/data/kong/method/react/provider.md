@@ -33,8 +33,8 @@
 context에 포함된 react provider는 context를 구독하는 컴포넌트들에게 context의 변화를 알리는 역할을 한다.
 provider 컴포넌트는 value prop을 받아서 이 값을 하위에 있는 컴포넌트에게 전달한다. 값을 전달받을 수 있는 컴포넌트 수에 제한은 없다.
 provider 하위에 또 다른 provider를 배치하는 것도 가능하며, 이 경우 하위 provider의 값이 우선시된다.
+Redux도 내부적으로 같은 Provider 패턴을 사용한다.
 
-Provider의 역할은 우리의 App이 Redux.store에 접근할 수 있도록 해준다.
 그러니까 provider는 HOC로 context를 제공하고, react가 제공하는 createContext 메서드를 활용하여 context 객체를 만들어낼 수 있다.
 Provider 컴포넌트는 value라는 prop으로 하위 컴포넌트들에게 내려줄 데이터를 받는다. 이 컴포넌트의 모든 자식 컴포넌트들은 해당 provider를 통해 value prop에 접근할 수 있다.
 
@@ -61,27 +61,17 @@ function SideBar() {
 
 ```
 
-이런 식으로 각 컴포넌트에서 useContext를 import 하는 대신 필요로 하는 컨텍스트를 직접 반환하는 훅을 구현할 수 있다.
-
-```js
-function useThemeContext() {
-  const theme = useContext(ThemeContext);
-  if (!theme) {
-    throw new Error("useThemeContext must be used within ThemeProvider");
-  }
-  return theme;
-}
-```
-
 ---
 
 가만히 보면 그냥 context랑 별반 다를 게 없는 친구 아니야? 싶겠지만, 그건 내가 이해를 잘못 해서 그런 것이었다.
-provider와 context는 역할이 다르다...
-provider는 값을 넣는 쪽, context는 값을 꺼내는 쪽이라고 보면 될 것 같다.
+provider와 context는 역할이 다르다... provider는 값을 넣는 쪽, context는 값을 꺼내는 쪽이라고 보면 될 것 같다.
 Provider 없이 useContext만 쓰면 값이 null이고, useContext 없이 Provider만 쓰면 값을 꺼내지 못한다...
+그리고 Provider가 감싼 범위만 전역변수로 사용할 수 있으니 참고할 것.
 
 ```js
 const UserContext = createContext(null);
+// Provider가 없을 때 사용되는 기본값
+// Provider 안에 있으면 이 값은 무시됨
 
 // Provider → 값을 "넣는" 쪽
 <UserContext value={{ name: "홍길동" }}>
@@ -108,6 +98,21 @@ function GrandChild() {
 <ThemeContext value={theme}>
   <Page />
 </ThemeContext>
+```
+
+## 번외. 훅으로 만들기!
+
+이런 식으로 각 컴포넌트에서 useContext를 import 하는 대신 필요로 하는 컨텍스트를 직접 반환하는 훅을 구현할 수 있다.
+커스텀 훅으로 감싸면 에러 메시지도 넣을 수 있고, 매번 import를 두 번 안 해도 된다...!
+
+```js
+function useThemeContext() {
+  const theme = useContext(ThemeContext);
+  if (!theme) {
+    throw new Error("useThemeContext must be used within ThemeProvider");
+  }
+  return theme;
+}
 ```
 
 ## 참고

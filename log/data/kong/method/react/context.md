@@ -24,6 +24,7 @@
 <img width="640" height="382" alt="image" src="https://github.com/user-attachments/assets/a610d0a1-7621-4d82-b889-08746b7b2c8e" />
 
 이런 상황을 속성이 여러 컴포넌트를 관통하는 것 같다고 해서 **Prop Drilling**이라고 한다.
+
 <img width="1440" height="890" alt="image" src="https://github.com/user-attachments/assets/0cfbd9b6-991f-40e5-a95a-2dd663b7bff1" />
 
 ---

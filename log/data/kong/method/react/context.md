@@ -22,10 +22,12 @@
 간단하게 설명하자면, 부모 컴포넌트가 자식 컴포넌트에게 데이터를 전달하는 방식이 props다. props는 간단하게 데이터를 전달할 수 있지만, 자식 컴포넌트 이상으로 데이터를 전달하려면 중간 단계의 컴포넌트에서 불필요하게 데이터를 처리해야 하는 문제가 발생한다.
 
 ![alt text](https://somwpkzlplaovldnfahk.supabase.co/storage/v1/object/public/heropy.dev_posts/EdhHX2/s2.JPG)
+<img width="1440" height="890" alt="image" src="https://github.com/user-attachments/assets/0cfbd9b6-991f-40e5-a95a-2dd663b7bff1" />
+
 
 이런 상황을 속성이 여러 컴포넌트를 관통하는 것 같다고 해서 **Prop Drilling**이라고 한다.
 
-![Prop drilling vs Context](.//image/prop_drilling_vs_context.svg)
+![Prop drilling vs Context](./image/prop_drilling_vs_context.svg)
 
 ---
 

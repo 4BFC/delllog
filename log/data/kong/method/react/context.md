@@ -25,6 +25,8 @@
 
 이런 상황을 속성이 여러 컴포넌트를 관통하는 것 같다고 해서 **Prop Drilling**이라고 한다.
 
+<img width="1440" height="890" alt="image" src="https://github.com/user-attachments/assets/e7d51487-4b7e-4481-81d7-18c2791d2026" />
+
 ---
 
 ## 그래서 진짜로, Context. 그게 뭔데
